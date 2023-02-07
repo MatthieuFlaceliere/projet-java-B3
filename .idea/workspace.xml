@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pret_a_la_consommation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Duree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Motif.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Taux.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/exceptions/DureeExcessiveException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/exceptions/MontantExcessifException.java" afterDir="false" />
+    <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="First commit">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/PretService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/util/ComparateurDePretsSurMontant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Duree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Duree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Motif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Motif.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Taux.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Taux.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -51,8 +48,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Fichiers/Bachelor/Langage Java/poker",
+    "last_opened_file_path": "D:/Fichiers/Bachelor/LangageJava/pret_a_la_consommation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +58,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="fr.esgi.pret_a_la_consomation.service" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -68,11 +71,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1675195358447</updated>
-      <workItem from="1675195359797" duration="1240000" />
+      <workItem from="1675195359797" duration="1473000" />
+      <workItem from="1675677377619" duration="9801000" />
+      <workItem from="1675767372636" duration="1030000" />
     </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <created>1675196650182</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1675196650182</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
   </component>
 </project>
