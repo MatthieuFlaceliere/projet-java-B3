@@ -14,14 +14,25 @@ public class Pret {
     private LocalDate dateEffet;
     private String observations;
     private ArrayList<Mensualite> mensualites;
+    private Taux taux;
+    private Client client;
     private static long compteur = 0L;
 
-    public Pret() {
-        mensualites = new ArrayList<>();
+    public Pret(double montentDemande, double montentMensualite, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
+        this.montentDemande = montentDemande;
+        this.montentMensualite = montentMensualite;
+        this.dateSouscription = dateSouscription;
+        this.dateEffet = dateEffet;
+        this.observations = observations;
+        this.client = client;
+        this.taux = taux;
+        this.mensualites = new ArrayList<>();
         id = ++compteur;
+        client.getPrets().add(this);
+        taux.getPrets().add(this);
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -69,16 +80,40 @@ public class Pret {
         this.observations = observations;
     }
 
+    public ArrayList<Mensualite> getMensualites() {
+        return mensualites;
+    }
+
+    public void setMensualites(ArrayList<Mensualite> mensualites) {
+        this.mensualites = mensualites;
+    }
+
+    public Taux getTaux() {
+        return taux;
+    }
+
+    public void setTaux(Taux taux) {
+        this.taux = taux;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Pret pret)) return false;
-        return id == pret.id && Double.compare(pret.montentDemande, montentDemande) == 0 && Double.compare(pret.montentMensualite, montentMensualite) == 0 && Objects.equals(dateSouscription, pret.dateSouscription) && Objects.equals(dateEffet, pret.dateEffet) && Objects.equals(observations, pret.observations);
+        return Double.compare(pret.montentDemande, montentDemande) == 0 && Double.compare(pret.montentMensualite, montentMensualite) == 0 && Objects.equals(id, pret.id) && Objects.equals(dateSouscription, pret.dateSouscription) && Objects.equals(dateEffet, pret.dateEffet) && Objects.equals(observations, pret.observations) && Objects.equals(mensualites, pret.mensualites) && Objects.equals(taux, pret.taux) && Objects.equals(client, pret.client);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, montentDemande, montentMensualite, dateSouscription, dateEffet, observations);
+        return Objects.hash(id, montentDemande, montentMensualite, dateSouscription, dateEffet, observations, mensualites, taux, client);
     }
 
     @Override
@@ -89,8 +124,10 @@ public class Pret {
                 ", montentMensualite=" + montentMensualite +
                 ", dateSouscription=" + dateSouscription +
                 ", dateEffet=" + dateEffet +
-                ", observations='" + observations + '\'' +
-                '}';
+                ", observations='" + observations +
+                ", mensualites=" + mensualites +
+                ", taux={id = " + taux.getId() + ", Valeur = " + taux.getValeur() + '}' +
+                ", client{id = " + client.getId() + "Nom = " + client.getNom() + ", Prenom = " + client.getPrenom() + "}}";
     }
 
 }

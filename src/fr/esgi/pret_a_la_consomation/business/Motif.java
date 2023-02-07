@@ -12,7 +12,10 @@ public class Motif {
     private ArrayList<Taux> taux;
     private static long compteur = 0L;
 
-    public Motif() {
+    public Motif(String nom, String description) {
+        this.nom = nom;
+        this.description = description;
+        taux = new ArrayList<Taux>();
         id = ++compteur;
     }
 

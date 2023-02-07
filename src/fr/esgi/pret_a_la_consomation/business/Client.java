@@ -11,11 +11,14 @@ public class Client {
     private ArrayList<Pret> prets;
     private static long compteur = 0L;
 
-    public Client() {
+    public Client(String nom, String prenom) {
+        this.nom = nom;
+        this.prenom = prenom;
+        prets = new ArrayList<Pret>();
         id = ++compteur;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -67,5 +70,9 @@ public class Client {
                 ", prenom='" + prenom + '\'' +
                 ", prets=" + prets +
                 '}';
+    }
+
+    public String toStringConsole(){
+        return id + ". " + nom + " " + prenom;
     }
 }

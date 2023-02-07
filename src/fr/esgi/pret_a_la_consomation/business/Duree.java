@@ -10,11 +10,13 @@ public class Duree {
     private ArrayList<Taux> taux;
     private static long compteur = 0L;
 
-    public Duree() {
+    public Duree(int dureeEnMois) {
+        this.dureeEnMois = dureeEnMois;
+        taux = new ArrayList<Taux>();
         id = ++compteur;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

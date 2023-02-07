@@ -9,12 +9,17 @@ public class Mensualite {
     private LocalDate datePrelevement;
     private double partInteretsRemboursement;
     private double partCapitalRemboursement;
-
+    private Pret pret;
     private static long compteur = 0L;
 
     // Constructeur
-    public Mensualite() {
+    public Mensualite(LocalDate datePrelevement, double partInteretsRemboursement, double partCapitalRemboursement, Pret pret) {
+        this.datePrelevement = datePrelevement;
+        this.partInteretsRemboursement = partInteretsRemboursement;
+        this.partCapitalRemboursement = partCapitalRemboursement;
+        this.pret = pret;
         id = ++compteur;
+        pret.getMensualites().add(this);
     }
 
     // Getters Setter
@@ -50,18 +55,24 @@ public class Mensualite {
         this.partCapitalRemboursement = partCapitalRemboursement;
     }
 
-    // HashCode
+    public Pret getPret() {
+        return pret;
+    }
+
+    public void setPret(Pret pret) {
+        this.pret = pret;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Mensualite that)) return false;
-        return id == that.id && Double.compare(that.partInteretsRemboursement, partInteretsRemboursement) == 0 && Double.compare(that.partCapitalRemboursement, partCapitalRemboursement) == 0 && Objects.equals(datePrelevement, that.datePrelevement);
+        return Double.compare(that.partInteretsRemboursement, partInteretsRemboursement) == 0 && Double.compare(that.partCapitalRemboursement, partCapitalRemboursement) == 0 && Objects.equals(id, that.id) && Objects.equals(datePrelevement, that.datePrelevement) && Objects.equals(pret, that.pret);
     }
 
-    // Equal
     @Override
     public int hashCode() {
-        return Objects.hash(id, datePrelevement, partInteretsRemboursement, partCapitalRemboursement);
+        return Objects.hash(id, datePrelevement, partInteretsRemboursement, partCapitalRemboursement, pret);
     }
 
     // To string
@@ -73,6 +84,7 @@ public class Mensualite {
                 ", datePrelevement=" + datePrelevement +
                 ", partInteretsRemboursement=" + partInteretsRemboursement +
                 ", partCapitalRemboursement=" + partCapitalRemboursement +
+                ", pret=" + pret +
                 '}';
     }
 }
