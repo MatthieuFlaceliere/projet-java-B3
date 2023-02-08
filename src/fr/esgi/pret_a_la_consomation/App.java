@@ -43,7 +43,13 @@ public class App {
             System.out.println(client.toStringConsole());
         }
 
-        System.out.println(pretService.ajouterPret(1000,12, LocalDateTime.now(),LocalDate.of(2023,03,01),"",tauxService.recupererTaux(1L),clientService.recupererClient(1L)));
+
+        System.out.println(pretService.ajouterPret(1000, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(1L), clientService.recupererClient(1L)));
+        System.out.println(pretService.ajouterPret(1200, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(2L), clientService.recupererClient(1L)));
+        System.out.println(pretService.ajouterPret(1300, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(1L), clientService.recupererClient(1L)));
+        System.out.println(pretService.ajouterPret(1400, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(2L), clientService.recupererClient(1L)));
+        pretService.trierPret("taux");
+        System.out.println(pretService.recupererPrets());
 
     }
 }

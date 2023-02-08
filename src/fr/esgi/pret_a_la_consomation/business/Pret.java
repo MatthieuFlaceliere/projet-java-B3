@@ -18,9 +18,9 @@ public class Pret {
     private Client client;
     private static long compteur = 0L;
 
-    public Pret(double montentDemande, double montentMensualite, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
+    public Pret(double montentDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
         this.montentDemande = montentDemande;
-        this.montentMensualite = montentMensualite;
+        this.montentMensualite = calculeMensualite(montentDemande, taux);
         this.dateSouscription = dateSouscription;
         this.dateEffet = dateEffet;
         this.observations = observations;
@@ -121,13 +121,28 @@ public class Pret {
         return "Pret{" +
                 "id=" + id +
                 ", montentDemande=" + montentDemande +
-                ", montentMensualite=" + montentMensualite +
+                ", montentMensualite=" + String.format("%.2f", montentMensualite) +
                 ", dateSouscription=" + dateSouscription +
                 ", dateEffet=" + dateEffet +
                 ", observations='" + observations +
                 ", mensualites=" + mensualites +
                 ", taux={id = " + taux.getId() + ", Valeur = " + taux.getValeur() + '}' +
                 ", client{id = " + client.getId() + "Nom = " + client.getNom() + ", Prenom = " + client.getPrenom() + "}}";
+    }
+
+    /*
+    * mensualité = capital x i / ( 1 - (1+i) puissance -n )
+        n: nombre de mensualités
+        i: taux d’intérêt. Si le taux d’intérêt annuel est 5 %, i = 0,05/12 =0,004166
+    * */
+    private double calculeMensualite(double montentDemande, Taux taux){
+        double mensualite = 0.0;
+        int n = taux.getDuree().getDureeEnMois();
+        double i = (taux.getValeur() / 100) / 12;
+
+        mensualite = (montentDemande * i) / (1 - Math.pow(1 + i, -n));
+
+        return mensualite;
     }
 
 }
