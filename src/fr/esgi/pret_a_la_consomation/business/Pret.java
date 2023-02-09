@@ -1,7 +1,9 @@
 package fr.esgi.pret_a_la_consomation.business;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -118,16 +120,32 @@ public class Pret {
 
     @Override
     public String toString() {
-        return "Pret{" +
-                "id=" + id +
-                ", montantDemande=" + montantDemande +
-                ", montantMensualite=" + String.format("%.2f", montantMensualite) +
-                ", dateSouscription=" + dateSouscription +
-                ", dateEffet=" + dateEffet +
-                ", observations='" + observations +
-                ", mensualites=" + mensualites +
-                ", taux={id = " + taux.getId() + ", Valeur = " + taux.getValeur() + '}' +
-                ", client{id = " + client.getId() + "Nom = " + client.getNom() + ", Prenom = " + client.getPrenom() + "}}";
+       String output ="""
+        | id| montentDemande| mensualite| dateSouscription| dateEffet| taux| client|\s
+        +------------+------------+------------+------------+------------+------------+------------+
+        """;
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        int col = 10;
+
+        output = output.replaceAll("id", formatForTab(id.toString(), col));
+        output = output.replaceAll("montentDemande", formatForTab(String.format("%.2f", montentDemande), col));
+        output = output.replaceAll("dateSouscription", formatForTab(dateSouscription.format(dateFormat), col));
+        output = output.replaceAll("dateEffet", formatForTab(dateEffet.format(dateFormat), col));
+        output = output.replaceAll("mensualite", formatForTab(String.format("%.2f", montentMensualite), col));
+        output = output.replaceAll("taux", formatForTab(String.format("%.2f",taux.getValeur()) + " %", col));
+        output = output.replaceAll("client", formatForTab(client.getNom(), col));
+
+        return output;
+    }
+
+    /*
+    * Formate un string pour un tableau
+     */
+    private String formatForTab(String input, int colLargeur){
+        for (int i = input.length(); i <= colLargeur; i++) {
+            input += " ";
+        }
+        return input;
     }
 
     /*
