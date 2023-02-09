@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="Finish Pret et trie">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
