@@ -27,6 +27,7 @@ public class App {
         Init();
 
         //Après initialisation des clients et taux
+        System.out.print("Bienvenue sur prêt à la consommation\n");
         menuPrincipal();
 
     }
@@ -48,10 +49,10 @@ public class App {
             clientService.ajouterClient("Nom" + i, "Prenom" + i);
         }
 
-        System.out.println(pretService.ajouterPret(1000, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(1L), clientService.recupererClient(1L)));
-        System.out.println(pretService.ajouterPret(1200, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(2L), clientService.recupererClient(1L)));
-        System.out.println(pretService.ajouterPret(1300, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(1L), clientService.recupererClient(1L)));
-        System.out.println(pretService.ajouterPret(1400, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(2L), clientService.recupererClient(1L)));
+        pretService.ajouterPret(1000, LocalDateTime.now(), LocalDate.of(2021, 03, 01), "", tauxService.recupererTaux(1L), clientService.recupererClient(1L));
+        pretService.ajouterPret(1600, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(2L), clientService.recupererClient(2L));
+        pretService.ajouterPret(1300, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(3L), clientService.recupererClient(3L));
+        pretService.ajouterPret(1400, LocalDateTime.now(), LocalDate.of(2021, 03, 01), "", tauxService.recupererTaux(3L), clientService.recupererClient(4L));
     }
 
     /*
@@ -60,7 +61,6 @@ public class App {
     private static void menuPrincipal(){
         byte selection = 0;
         System.out.println("""
-        Bienvenue sur prêt à la consommation\s
         1. Voir tous les prêts triées par montant (du plus élevé au plus petit)
         2. Voir tous les prêts triées par taux (du plus élevé au plus petit)\s
         3. Voir la liste des prêts qui débutent entre deux dates données\s
@@ -88,8 +88,22 @@ public class App {
      */
     private static void affichageTriesPrets(String trie){
         pretService.trierPret(trie);
-        // Améliorer l'affichage
-        System.out.println(pretService.recupererPrets());
+        switch (trie){
+            case "montant" -> System.out.println("""
+                   +------------+------------+------------+------------+------------+------------+------------+
+                   | Num pret   | Montant ↑  | Mensualité |Souscription| Date effet | Taux       | Client     |
+                   +------------+------------+------------+------------+------------+------------+------------+""");
+            case "taux" -> System.out.println("""
+                   +------------+------------+------------+------------+------------+------------+------------+
+                   | Num pret   | Montant    | Mensualité |Souscription| Date effet | Taux ↑     | Client     |
+                   +------------+------------+------------+------------+------------+------------+------------+""");
+        }
+
+        for ( Pret pret: pretService.recupererPrets()) {
+            System.out.print(pret);
+        }
+
+        menuPrincipal();
     }
 
     /*
@@ -137,8 +151,15 @@ public class App {
                 .filter(pret -> pret.getDateEffet().isAfter(dateDebut) && pret.getDateEffet().isBefore(dateFin))
                 .toList();
         System.out.println("Voici les prêts ayant pris effet entre le : " + inputDateDebut + " et le : " + inputDateFin);
-        System.out.println(listPret);
+        System.out.println("""
+                   +------------+------------+------------+------------+------------+------------+------------+
+                   | Num pret   | Montant    | Mensualité |Souscription| Date effet | Taux       | Client     |
+                   +------------+------------+------------+------------+------------+------------+------------+""");
+        for ( Pret pret: listPret) {
+            System.out.print(pret);
+        }
 
+        menuPrincipal();
     }
 
     /*
@@ -165,6 +186,7 @@ public class App {
     * Affichage en détail d'un prêts
     */
     private static void affichagePret(Pret pret){
-        System.out.println(pret);
+        System.out.println("Voici les détails du prêt : id : "+ pret.getClient().getId() +", client : " + pret.getClient().getNom() +" "+ pret.getClient().getPrenom() + ", montant emprunté : "+ pret.getMontentDemande() +", mensualité : " + pret.getMontentMensualite());
+        menuPrincipal();
     }
 }
