@@ -4,29 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="Remplissage des classes et ajout de ComparateurDePretsSurMontant">
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/ClientService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/DureeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/MensualiteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/MotifService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/TauxService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/ClientServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/DureeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/MensualiteServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/MotifServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/PretServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/TauxServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/util/ComparateurDePretsSurTaux.java" afterDir="false" />
+    <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="Finish Pret et trie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Duree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Duree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Motif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Motif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Taux.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Taux.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/PretService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/PretService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/util/ComparateurDePretsSurMontant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/util/ComparateurDePretsSurMontant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +22,50 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1675869347" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="featureMatthieu" />
+                    <option name="lastUsedInstant" value="1675869346" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,24 +78,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Fichiers/Bachelor/LangageJava/pret_a_la_consommation",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Fichiers/Bachelor/LangageJava/pret_a_la_consommation&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="fr.esgi.pret_a_la_consomation.service.impl" />
@@ -95,7 +119,11 @@
       <updated>1675195358447</updated>
       <workItem from="1675195359797" duration="1473000" />
       <workItem from="1675677377619" duration="9801000" />
-      <workItem from="1675767372636" duration="17212000" />
+      <workItem from="1675767372636" duration="17295000" />
+      <workItem from="1675858856392" duration="4328000" />
+      <workItem from="1675863527110" duration="1840000" />
+      <workItem from="1675869302725" duration="87000" />
+      <workItem from="1675869408531" duration="8693000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1675196650182</created>
@@ -111,7 +139,21 @@
       <option name="project" value="LOCAL" />
       <updated>1675768458449</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Init all interfaces">
+      <created>1675806407590</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1675806407590</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Finish Pret et trie">
+      <created>1675864420778</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675864420778</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,7 +164,39 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="master" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="featureMatthieu" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -131,7 +205,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Remplissage des classes et ajout de ComparateurDePretsSurMontant" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remplissage des classes et ajout de ComparateurDePretsSurMontant" />
+    <MESSAGE value="Init all interfaces" />
+    <MESSAGE value="Finish Pret et trie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish Pret et trie" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
