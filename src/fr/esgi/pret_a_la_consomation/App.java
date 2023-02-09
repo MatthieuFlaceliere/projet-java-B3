@@ -135,7 +135,10 @@ public class App {
      * Affichage des clients
      */
     private static void affichageClients(){
-
+        List<Client> listClients = clientService.recupererClients();
+        for (Client client:listClients) {
+            System.out.println(client.toStringConsole());
+        }
     }
 
     /*
