@@ -7,6 +7,7 @@ import fr.esgi.pret_a_la_consomation.util.ComparateurDePretsSurMontant;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -125,6 +126,18 @@ public class App {
     *   Affichage des prets entre deux dates
     */
     private static void affichageDatesPrets(){
+        System.out.println("Veuillez saisir la date de début au format dd/MM/yyyy : ");
+        String inputDateDebut = sc.nextLine();
+        System.out.println("Veuillez saisir la date de fin au format dd/MM/yyyy : ");
+        String inputDateFin = sc.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dateDebut = LocalDate.parse(inputDateDebut, formatter);
+        LocalDate dateFin = LocalDate.parse(inputDateFin, formatter);
+        List<Pret> listPret = pretService.recupererPrets().stream()
+                .filter(pret -> pret.getDateEffet().isAfter(dateDebut) && pret.getDateEffet().isBefore(dateFin))
+                .toList();
+        System.out.println("Voici les prêts ayant pris effet entre le : " + inputDateDebut + " et le : " + inputDateFin);
+        System.out.println(listPret);
 
     }
 
@@ -132,7 +145,10 @@ public class App {
      * Affichage des clients
      */
     private static void affichageClients(){
-
+        List<Client> listClients = clientService.recupererClients();
+        for (Client client:listClients) {
+            System.out.println(client.toStringConsole());
+        }
     }
 
     /*

@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="feat(table pret) : affichage des prets triés">
       <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/PretServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/impl/PretServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675864420778</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat(table pret) : affichage des prets triés">
+      <created>1675955379634</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675955379634</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +176,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="featureMatthieu" />
                       </list>
                     </value>
                   </entry>
@@ -209,7 +213,8 @@
     <MESSAGE value="Remplissage des classes et ajout de ComparateurDePretsSurMontant" />
     <MESSAGE value="Init all interfaces" />
     <MESSAGE value="Finish Pret et trie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish Pret et trie" />
+    <MESSAGE value="feat(table pret) : affichage des prets triés" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(table pret) : affichage des prets triés" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
