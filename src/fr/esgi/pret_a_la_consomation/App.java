@@ -22,7 +22,7 @@ public class App {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        motifService.ajouterMotif("Moto", "Moto desc");
+        motifService.ajouterMotif("Moto ", "Moto desc");
         motifService.ajouterMotif("Auto", "Auto desc");
 
         dureeService.ajouterDuree(24);

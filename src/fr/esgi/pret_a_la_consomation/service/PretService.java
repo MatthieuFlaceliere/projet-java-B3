@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface PretService {
 
-    Pret ajouterPret(double montentDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client);
+    Pret ajouterPret(double montantDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client);
     Pret ajouterPret(Pret pret);
     List<Pret> recupererPrets();
     Pret recupererPret(Long id);

@@ -8,8 +8,8 @@ import java.util.Objects;
 public class Pret {
 
     private Long id;
-    private double montentDemande;
-    private double montentMensualite;
+    private double montantDemande;
+    private double montantMensualite;
     private LocalDateTime dateSouscription;
     private LocalDate dateEffet;
     private String observations;
@@ -18,9 +18,9 @@ public class Pret {
     private Client client;
     private static long compteur = 0L;
 
-    public Pret(double montentDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
-        this.montentDemande = montentDemande;
-        this.montentMensualite = calculeMensualite(montentDemande, taux);
+    public Pret(double montantDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
+        this.montantDemande = montantDemande;
+        this.montantMensualite = calculeMensualite(montantDemande, taux);
         this.dateSouscription = dateSouscription;
         this.dateEffet = dateEffet;
         this.observations = observations;
@@ -40,20 +40,20 @@ public class Pret {
         this.id = id;
     }
 
-    public double getMontentDemande() {
-        return montentDemande;
+    public double getMontantDemande() {
+        return montantDemande;
     }
 
-    public void setMontentDemande(double montentDemande) {
-        this.montentDemande = montentDemande;
+    public void setMontantDemande(double montantDemande) {
+        this.montantDemande = montantDemande;
     }
 
-    public double getMontentMensualite() {
-        return montentMensualite;
+    public double getMontantMensualite() {
+        return montantMensualite;
     }
 
-    public void setMontentMensualite(double montentMensualite) {
-        this.montentMensualite = montentMensualite;
+    public void setMontantMensualite(double montantMensualite) {
+        this.montantMensualite = montantMensualite;
     }
 
     public LocalDateTime getDateSouscription() {
@@ -108,20 +108,20 @@ public class Pret {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Pret pret)) return false;
-        return Double.compare(pret.montentDemande, montentDemande) == 0 && Double.compare(pret.montentMensualite, montentMensualite) == 0 && Objects.equals(id, pret.id) && Objects.equals(dateSouscription, pret.dateSouscription) && Objects.equals(dateEffet, pret.dateEffet) && Objects.equals(observations, pret.observations) && Objects.equals(mensualites, pret.mensualites) && Objects.equals(taux, pret.taux) && Objects.equals(client, pret.client);
+        return Double.compare(pret.montantDemande, montantDemande) == 0 && Double.compare(pret.montantMensualite, montantMensualite) == 0 && Objects.equals(id, pret.id) && Objects.equals(dateSouscription, pret.dateSouscription) && Objects.equals(dateEffet, pret.dateEffet) && Objects.equals(observations, pret.observations) && Objects.equals(mensualites, pret.mensualites) && Objects.equals(taux, pret.taux) && Objects.equals(client, pret.client);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, montentDemande, montentMensualite, dateSouscription, dateEffet, observations, mensualites, taux, client);
+        return Objects.hash(id, montantDemande, montantMensualite, dateSouscription, dateEffet, observations, mensualites, taux, client);
     }
 
     @Override
     public String toString() {
         return "Pret{" +
                 "id=" + id +
-                ", montentDemande=" + montentDemande +
-                ", montentMensualite=" + String.format("%.2f", montentMensualite) +
+                ", montantDemande=" + montantDemande +
+                ", montantMensualite=" + String.format("%.2f", montantMensualite) +
                 ", dateSouscription=" + dateSouscription +
                 ", dateEffet=" + dateEffet +
                 ", observations='" + observations +
@@ -135,12 +135,12 @@ public class Pret {
         n: nombre de mensualités
         i: taux d’intérêt. Si le taux d’intérêt annuel est 5 %, i = 0,05/12 =0,004166
     * */
-    private double calculeMensualite(double montentDemande, Taux taux){
+    private double calculeMensualite(double montantDemande, Taux taux){
         double mensualite = 0.0;
         int n = taux.getDuree().getDureeEnMois();
         double i = (taux.getValeur() / 100) / 12;
 
-        mensualite = (montentDemande * i) / (1 - Math.pow(1 + i, -n));
+        mensualite = (montantDemande * i) / (1 - Math.pow(1 + i, -n));
 
         return mensualite;
     }
