@@ -99,15 +99,26 @@ public class App {
     private static void affichageAjoutPret(){
         affichageClients();
         System.out.println("Veuillez saisir l'id du client concerné : ");
-        //TODO
+        String inputIdClient = sc.nextLine();
+        Long idClient = Long.parseLong(inputIdClient);
+        Client client = clientService.recupererClient(idClient);
+
         System.out.println("Veuillez saisir le montant demandé : ");
-        //TODO
+        String inputMontantDemande = sc.nextLine();
+        Double montantDemande = Double.parseDouble(inputMontantDemande);
+
         affichageTaux();
         System.out.println("Veuillez saisir l'id du taux annuel : ");
-        //TODO
-        System.out.println("Veuillez saisir la date d'effet au format MM/yyyy : ");
-        //TODO
-        Pret newPret = new Pret(1000, LocalDateTime.now(), LocalDate.of(2023, 03, 01), "", tauxService.recupererTaux(1L), clientService.recupererClient(1L));
+        String inputIdTauxAnnuel = sc.nextLine();
+        Long idTauxAnnuel = Long.parseLong(inputIdTauxAnnuel);
+        Taux taux = tauxService.recupererTaux(idTauxAnnuel);
+
+        System.out.println("Veuillez saisir la date d'effet au format dd/MM/yyyy : ");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String inputDateEffet = sc.nextLine();
+        LocalDate dateEffet = LocalDate.parse(inputDateEffet, formatter);
+
+        Pret newPret = new Pret(montantDemande, LocalDateTime.now(), dateEffet, "", taux, client);
         pretService.ajouterPret(newPret);
         affichagePret(newPret);
     }
@@ -145,7 +156,10 @@ public class App {
      * Affichage des taux
      */
     private static void affichageTaux(){
-
+        List<Taux> listTaux = tauxService.recupererTauxs();
+        for (Taux taux:listTaux) {
+            System.out.println(taux.toStringConsole());
+        }
     }
 
     /*
