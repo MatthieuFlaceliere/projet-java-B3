@@ -54,6 +54,7 @@ public class PretServiceImpl implements PretService {
 
     @Override
     public void trierPret(String typeComparaison) {
+        //Utilisation d'un switch case car dans le future on peut imaginer plus de trie
         switch (typeComparaison){
             case "montant" -> prets.sort(new ComparateurDePretsSurMontant());
             case "taux" -> prets.sort(new ComparateurDePretsSurTaux());
