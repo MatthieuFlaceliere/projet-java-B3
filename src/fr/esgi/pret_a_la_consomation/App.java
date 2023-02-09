@@ -187,7 +187,7 @@ public class App {
     * Affichage en détail d'un prêts
     */
     private static void affichagePret(Pret pret){
-        System.out.println("Voici les détails du prêt : id : "+ pret.getClient().getId() +", client : " + pret.getClient().getNom() +" "+ pret.getClient().getPrenom() + ", montant emprunté : "+ pret.getMontentDemande() +", mensualité : " + pret.getMontentMensualite());
+        System.out.println("Voici les détails du prêt : id : "+ pret.getClient().getId() +", client : " + pret.getClient().getNom() +" "+ pret.getClient().getPrenom() + ", montant emprunté : "+ pret.getMontantDemande() +", mensualité : " + pret.getMontantMensualite());
         menuPrincipal();
     }
 }
