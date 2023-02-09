@@ -7,7 +7,7 @@ import java.util.Comparator;
 
 public class ComparateurDePretsSurTaux implements Comparator<Pret> {
     /**
-     * cette methode montre a java comment comparer 2 pret donné en parametre
+     * Cette methode montre à java comment comparer deux pret donnés en parametre
      *
      * @param pret1 the first object to be compared.
      * @param pret2 the second object to be compared.

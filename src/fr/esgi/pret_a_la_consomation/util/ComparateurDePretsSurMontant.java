@@ -14,6 +14,6 @@ public class ComparateurDePretsSurMontant implements Comparator<Pret> {
      */
     @Override
     public int compare(Pret pret1, Pret pret2) {
-        return Double.compare(pret2.getMontentDemande(), pret1.getMontentDemande());
+        return Double.compare(pret2.getMontantDemande(), pret1.getMontantDemande());
     }
 }

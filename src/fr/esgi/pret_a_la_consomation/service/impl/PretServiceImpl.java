@@ -15,8 +15,8 @@ import java.util.List;
 public class PretServiceImpl implements PretService {
     private static List<Pret> prets = new ArrayList<>();
     @Override
-    public Pret ajouterPret(double montentDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
-        Pret pret = new Pret(montentDemande,dateSouscription,dateEffet,observations,taux,client);
+    public Pret ajouterPret(double montantDemande, LocalDateTime dateSouscription, LocalDate dateEffet, String observations, Taux taux, Client client) {
+        Pret pret = new Pret(montantDemande,dateSouscription,dateEffet,observations,taux,client);
         return ajouterPret(pret);
     }
 
