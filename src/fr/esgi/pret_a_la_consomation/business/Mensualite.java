@@ -1,6 +1,7 @@
 package fr.esgi.pret_a_la_consomation.business;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Mensualite {
@@ -79,12 +80,7 @@ public class Mensualite {
 
     @Override
     public String toString() {
-        return "Mensualite{" +
-                "id=" + id +
-                ", datePrelevement=" + datePrelevement +
-                ", partInteretsRemboursement=" + partInteretsRemboursement +
-                ", partCapitalRemboursement=" + partCapitalRemboursement +
-                ", pret=" + pret +
-                '}';
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yyyy");
+        return datePrelevement.format(formatter) + "    " + String.format("%.2f", partCapitalRemboursement) + "                  " + String.format("%.2f", partInteretsRemboursement);
     }
 }

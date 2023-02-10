@@ -8,10 +8,7 @@ import fr.esgi.pret_a_la_consomation.util.ComparateurDePretsSurMontant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     private static final TauxService tauxService = new TauxServiceImpl();
@@ -112,25 +109,51 @@ public class App {
      */
     private static void affichageAjoutPret(){
         affichageClients();
-        System.out.println("Veuillez saisir l'id du client concerné : ");
-        String inputIdClient = sc.nextLine();
-        Long idClient = Long.parseLong(inputIdClient);
+        Long idClient = 0L;
+        do {
+            try {
+                System.out.println("Veuillez saisir l'id du client concerné : ");
+                idClient = Long.parseLong(sc.nextLine());
+            } catch (Exception e) {
+                System.out.println("Saisie invalide");
+            }
+        } while (idClient < 1 || idClient > clientService.recupererClients().size());
         Client client = clientService.recupererClient(idClient);
 
-        System.out.println("Veuillez saisir le montant demandé : ");
-        String inputMontantDemande = sc.nextLine();
-        Double montantDemande = Double.parseDouble(inputMontantDemande);
+        double montantDemande = 0;
+        do {
+            try {
+                System.out.println("Veuillez saisir le montant demandé : ");
+                montantDemande = Double.parseDouble(sc.nextLine());
+            } catch (Exception e) {
+                System.out.println("Saisie invalide");
+            }
+        } while (montantDemande < 0 || montantDemande > 20000);
 
         affichageTaux();
-        System.out.println("Veuillez saisir l'id du taux annuel : ");
-        String inputIdTauxAnnuel = sc.nextLine();
-        Long idTauxAnnuel = Long.parseLong(inputIdTauxAnnuel);
+        Long idTauxAnnuel = 0L;
+        do {
+            try {
+                System.out.println("Veuillez saisir l'id du taux annuel : ");
+                idTauxAnnuel = Long.parseLong(sc.nextLine());
+            } catch (Exception e) {
+                System.out.println("Saisie invalide");
+            }
+        } while (idTauxAnnuel < 1 || idTauxAnnuel > tauxService.recupererTauxs().size());
         Taux taux = tauxService.recupererTaux(idTauxAnnuel);
 
-        System.out.println("Veuillez saisir la date d'effet au format dd/MM/yyyy : ");
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String inputDateEffet = sc.nextLine();
-        LocalDate dateEffet = LocalDate.parse(inputDateEffet, formatter);
+        String inputDateEffet = "";
+        do {
+            try {
+                System.out.println("Veuillez saisir la date d'effet au format MM/yyyy : ");
+                inputDateEffet = sc.nextLine();
+            } catch (Exception e) {
+                System.out.println("Saisie invalide");
+            }
+        } while (Objects.equals(inputDateEffet, ""));
+        LocalDate dateEffet = LocalDate.parse(("01/" + inputDateEffet), formatter);
 
         Pret newPret = new Pret(montantDemande, LocalDateTime.now(), dateEffet, "", taux, client);
         pretService.ajouterPret(newPret);
@@ -187,7 +210,11 @@ public class App {
     * Affichage en détail d'un prêts
     */
     private static void affichagePret(Pret pret){
-        System.out.println("Voici les détails du prêt : id : "+ pret.getClient().getId() +", client : " + pret.getClient().getNom() +" "+ pret.getClient().getPrenom() + ", montant emprunté : "+ pret.getMontantDemande() +", mensualité : " + pret.getMontantMensualite());
+        System.out.println("Voici les détails du prêt : id : "+ pret.getClient().getId() +", client : " + pret.getClient().getNom() +" "+ pret.getClient().getPrenom() + ", montant emprunté : "+ pret.getMontantDemande() +", mensualité : " + String.format("%.2f", pret.getMontantMensualite()));
+        System.out.println("Date       Capital remboursé       Part des intérêts");
+        for (Mensualite mensu: pret.getMensualites()) {
+            System.out.println(mensu);
+        }
         menuPrincipal();
     }
 }
