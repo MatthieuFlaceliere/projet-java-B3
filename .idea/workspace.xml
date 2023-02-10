@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="97659ea2-dc68-4c5a-9254-23f07b05df5c" name="Changes" comment="feat : calcule des mensualités">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Mensualite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/business/Pret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/DureeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/DureeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/MensualiteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/MensualiteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/MotifService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/MotifService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/PretService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/PretService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/TauxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/esgi/pret_a_la_consomation/service/TauxService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +126,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0bdddcf9-e0ba-4052-8767-9b6828c0688b" name="Changes" comment="" />
+      <changelist id="97659ea2-dc68-4c5a-9254-23f07b05df5c" name="Changes" comment="feat : calcule des mensualités" />
       <created>1675195358447</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
