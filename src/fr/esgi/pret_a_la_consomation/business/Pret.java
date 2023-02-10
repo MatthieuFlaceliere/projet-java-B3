@@ -32,6 +32,7 @@ public class Pret {
         id = ++compteur;
         client.getPrets().add(this);
         taux.getPrets().add(this);
+        calculeMensualites();
     }
 
     public Long getId() {
@@ -128,10 +129,10 @@ public class Pret {
         int col = 10;
 
         output = output.replaceAll("id", formatForTab(id.toString(), col));
-        output = output.replaceAll("montentDemande", formatForTab(String.format("%.2f", montentDemande), col));
+        output = output.replaceAll("montentDemande", formatForTab(String.format("%.2f", montantDemande), col));
         output = output.replaceAll("dateSouscription", formatForTab(dateSouscription.format(dateFormat), col));
         output = output.replaceAll("dateEffet", formatForTab(dateEffet.format(dateFormat), col));
-        output = output.replaceAll("mensualite", formatForTab(String.format("%.2f", montentMensualite), col));
+        output = output.replaceAll("mensualite", formatForTab(String.format("%.2f", montantMensualite), col));
         output = output.replaceAll("taux", formatForTab(String.format("%.2f",taux.getValeur()) + " %", col));
         output = output.replaceAll("client", formatForTab(client.getNom(), col));
 
@@ -161,6 +162,22 @@ public class Pret {
         mensualite = (montantDemande * i) / (1 - Math.pow(1 + i, -n));
 
         return mensualite;
+    }
+
+    /**
+     * Calcule les mensualités pour le pret
+     */
+    private void calculeMensualites(){
+        double interet = montantDemande * (taux.getValeur() / 100) / 12;
+        Mensualite mensualite = new Mensualite(dateEffet , interet, (montantMensualite - interet), this);
+        for (int i = 0; i < taux.getDuree().getDureeEnMois() - 1 ; i++) {
+            Mensualite mensuPrecedante = mensualites.get(i);
+            double reste = 0;
+            reste = montantDemande - mensuPrecedante.getPartCapitalRemboursement();
+            interet = reste * (taux.getValeur() / 100) / 12;
+            double capitale = mensuPrecedante.getPartCapitalRemboursement() + montantMensualite - interet;
+            mensualite = new Mensualite(dateEffet.plusMonths(i + 1) , interet, (mensuPrecedante.getPartCapitalRemboursement() + montantMensualite - interet), this);
+        }
     }
 
 }
